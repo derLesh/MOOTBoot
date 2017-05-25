@@ -13,7 +13,7 @@ import net.dv8tion.jda.core.exceptions.RateLimitedException;
 public class Main {
 	
 	public static JDA jda;
-	public static final String BOT_TOKEN ="MzE1NzYwMTAzMjA4Nzc5Nzc3.DALcLg.1zVjPHX2RzPvJouWCjrnTA1J9Ao";
+	public static final String BOT_TOKEN ="MzE1NzYwMTAzMjA4Nzc5Nzc3DALcLg.1zVjPHX2RzPvJouWCjrnTA1J9Ao";
 
 	public static int sentMSG = 0;
 	
