@@ -4,6 +4,7 @@ import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.Game;
 import net.dv8tion.jda.core.events.ReadyEvent;
 
+import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
@@ -31,7 +32,7 @@ public class BotListener extends ListenerAdapter{
 		idList.add(mootReiniee);	
 	}
 	
-        public static Map<Member, Integer> map = new HashMap<>();
+        public static Map<User, Integer> map = new HashMap<>();
 	
 	@Override
 	public void onMessageReceived(MessageReceivedEvent event) {
@@ -75,11 +76,11 @@ public class BotListener extends ListenerAdapter{
 									.queue());
 			}else {
 				//if sent message wasn't a command:
-			        Member m = event.getAuthor();
+			        User m = event.getAuthor();
 				map.put(m, map.getOrDefault(m,0)+1);//increment message value
 			}
 		}else{
-			Member m = event.getAuthor();
+			User m = event.getAuthor();
 			map.put(m, map.getOrDefault(m,0)+1);//increment message value
 			//event.getChannel().sendMessage(event.getAuthor().getAsMention() + " >> Du hast keine Berechtigung dafür!").queue();
 		}
