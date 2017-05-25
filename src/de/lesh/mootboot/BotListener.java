@@ -8,16 +8,12 @@ import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import de.lesh.mootboot.commands.*;
-import de.lesh.mootboot.games.changeCurGame;
-import de.lesh.mootboot.info.userInfo;
 import de.lesh.mootboot.user.userList;
 
 public class BotListener extends ListenerAdapter{
