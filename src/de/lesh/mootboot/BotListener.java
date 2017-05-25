@@ -51,9 +51,7 @@ public class BotListener extends ListenerAdapter{
 			}
 			if(event.getMessage().getRawContent().startsWith(lib.prefix)&&!succeed){
 				event.getChannel().sendMessage(event.getAuthor().getAsMention() + ". I'm sorry. That's an unknown Command!").queue();
-				return;
 			}
-			
 			//This os old unused stuff. It's here for reference and to copy the old implementation into new Classes for them...
 			// PING - PONG
 			if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix + "playPing")) {
@@ -61,7 +59,7 @@ public class BotListener extends ListenerAdapter{
 			}else if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix + "help")){
 				event.getChannel().sendMessage(help.help).queue();
 			}else if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix + "github")){
-				event.getChannel().sendMessage(">> Source Code: https://github.com/LeshDev/MOOTBoot/tree/master/src/de/lesh/mootboot");
+				event.getChannel().sendMessage(">> Source Code: https://github.com/LeshDev/MOOTBoot/tree/master/src/de/lesh/mootboot").queue();;
 			}else if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix + "twitch lesh")){
 				event.getChannel().sendMessage(twitch.leshLive).queue();
 			}else if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix + "twitch noah")){
