@@ -1,7 +1,7 @@
 package de.lesh.mootboot;
 
 import javax.security.auth.login.LoginException;
-import javax.sound.midi.MidiDevice.Info;
+
 
 import de.lesh.mootboot.info.userInfo;
 import net.dv8tion.jda.core.AccountType;
@@ -13,7 +13,6 @@ import net.dv8tion.jda.core.exceptions.RateLimitedException;
 public class Main {
 	
 	public static JDA jda;
-	public static final String BOT_TOKEN ="MzE1NzYwMTAzMjA4Nzc5Nzc3DALcLg.1zVjPHX2RzPvJouWCjrnTA1J9Ao";
 
 	public static int sentMSG = 0;
 	
@@ -21,7 +20,7 @@ public class Main {
 		try { jda = (JDA) new JDABuilder(AccountType.BOT)
 					.addEventListener(new BotListener())
 					.addEventListener(new userInfo())
-					.setToken(BOT_TOKEN)
+					.setToken(bot_token.BOT_TOKEN)
 					.setAutoReconnect(true)
 					.setGame(Game.of("Moot Moot"))
 					.buildBlocking().asBot();
