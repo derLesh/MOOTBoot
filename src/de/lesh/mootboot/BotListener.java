@@ -24,7 +24,12 @@ public class BotListener extends ListenerAdapter{
 	
 	public static List<Long> idList = new ArrayList<>();
 	
+<<<<<<< HEAD
 	public static Command[] commands = new Command[]{new CommandUser()};
+=======
+	public static Command[] commands = new Command[]{
+		new CommandUser()};
+>>>>>>> origin/master
 	
 	public void onReady(ReadyEvent e){
 		idList.add(mootLesh);
@@ -36,6 +41,11 @@ public class BotListener extends ListenerAdapter{
 	
 	@Override
 	public void onMessageReceived(MessageReceivedEvent event) {
+		//anyMessage
+		for(Command c:commands){
+			c.onMessageAnyReceived(event);
+		}
+		//Commands...
 		if(idList.contains(event.getAuthor().getIdLong())){
 			for(Command c: commands) {
 				if(event.getMessage().getRawContent().toLowerCase().startsWith(lib.prefix + c.getName())){
@@ -84,15 +94,7 @@ public class BotListener extends ListenerAdapter{
 									.setColor(java.awt.Color.GREEN)
 									.build())
 									.queue());
-			}else {
-				//if sent message wasn't a command:
-			    User m = event.getAuthor();
-				map.put(m, map.getOrDefault(m,0)+1);//increment message value
 			}
-		}else{
-			User m = event.getAuthor();
-			map.put(m, map.getOrDefault(m,0)+1);//increment message value
-			//event.getChannel().sendMessage(event.getAuthor().getAsMention() + " >> Du hast keine Berechtigung dafür!").queue();
 		}
 	}
 }
