@@ -24,9 +24,17 @@ public class BotListener extends ListenerAdapter{
 	
 	public static List<Long> idList = new ArrayList<>();
 	
+<<<<<<< HEAD
 
 	public static Command[] commands = new Command[]{new CommandUser()};
 
+=======
+	public static Command[] commands = new Command[]{
+		new CommandUser()
+	};
+
+	
+>>>>>>> origin/master
 	public void onReady(ReadyEvent e){
 		idList.add(mootLesh);
 		idList.add(mootCAnders);
@@ -43,12 +51,14 @@ public class BotListener extends ListenerAdapter{
 		}
 		//Commands...
 		if(idList.contains(event.getAuthor().getIdLong())){
+			boolean succeed = false;
 			for(Command c: commands) {
 				if(event.getMessage().getRawContent().toLowerCase().startsWith(lib.prefix + c.getName())){
+					succeed = true;
 					c.execute(event.getMessage().getRawContent(),event.getMessage().getRawContent().split(" "), event);
 				}
 			}
-			if(event.getMessage().getRawContent().startsWith(lib.prefix)){
+			if(event.getMessage().getRawContent().startsWith(lib.prefix)&&!succeed){
 				event.getChannel().sendMessage(event.getAuthor().getAsMention() + ". I'm sorry. That's an unknown Command!").queue();
 				return;
 			}
