@@ -51,6 +51,7 @@ public class BotListener extends ListenerAdapter{
 			}
 			if(event.getMessage().getRawContent().startsWith(lib.prefix)&&!succeed){
 				event.getChannel().sendMessage(event.getAuthor().getAsMention() + ". I'm sorry. That's an unknown Command!").queue();
+				return;
 			}
 			//This os old unused stuff. It's here for reference and to copy the old implementation into new Classes for them...
 			// PING - PONG
