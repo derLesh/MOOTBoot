@@ -60,6 +60,8 @@ public class BotListener extends ListenerAdapter{
 				event.getChannel().sendMessage(event.getAuthor().getAsMention() + " Pong!").queue();
 			}else if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix + "help")){
 				event.getChannel().sendMessage(help.help).queue();
+			}else if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix + "github")){
+				event.getChannel().sendMessage(">> Source Code: https://github.com/LeshDev/MOOTBoot/tree/master/src/de/lesh/mootboot");
 			}else if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix + "twitch lesh")){
 				event.getChannel().sendMessage(twitch.leshLive).queue();
 			}else if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix + "twitch noah")){
