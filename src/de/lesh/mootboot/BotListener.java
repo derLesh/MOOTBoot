@@ -11,7 +11,9 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import de.lesh.mootboot.commands.*;
 import de.lesh.mootboot.games.changeCurGame;
@@ -47,7 +49,7 @@ public class BotListener extends ListenerAdapter{
 				event.getChannel().sendMessage(twitch.leshLive).queue();
 			}else if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix + "twitch noah")){
 				event.getChannel().sendMessage(twitch.noahLive).queue();
-			}else if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix+"twitch)){
+			}else if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix+"twitch")){
 				event.getChannel().sendMessage(">> Der User ist nicht in der Livelist eingetragen");
 			}else if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix + "list")){
 				event.getChannel().sendMessage(userList.allMoots).queue();
@@ -76,7 +78,7 @@ public class BotListener extends ListenerAdapter{
 									.queue());
 			}else {
 				//if sent message wasn't a command:
-			        User m = event.getAuthor();
+			    User m = event.getAuthor();
 				map.put(m, map.getOrDefault(m,0)+1);//increment message value
 			}
 		}else{
