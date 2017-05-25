@@ -24,8 +24,7 @@ public class BotListener extends ListenerAdapter{
 	
 	public static List<Long> idList = new ArrayList<>();
 	
-	public static Command[] commands = new Command(){
-		new CommandUser()};
+	public static Command[] commands = new Command[]{new CommandUser()};
 	
 	public void onReady(ReadyEvent e){
 		idList.add(mootLesh);
@@ -38,15 +37,16 @@ public class BotListener extends ListenerAdapter{
 	@Override
 	public void onMessageReceived(MessageReceivedEvent event) {
 		if(idList.contains(event.getAuthor().getIdLong())){
-			for(Command c: command) {
+			for(Command c: commands) {
 				if(event.getMessage().getRawContent().toLowerCase().startsWith(lib.prefix + c.getName())){
 					c.execute(event.getMessage().getRawContent(),event.getMessage().getRawContent().split(" "), event);
 				}
 			}
 			if(event.getMessage().getRawContent().startsWith(lib.prefix)){
-				event.getChannel.sendMessage(event.getAuthor().getAsMention() + ". I'm sorry. That's an unknown Command!").queue();
+				event.getChannel().sendMessage(event.getAuthor().getAsMention() + ". I'm sorry. That's an unknown Command!").queue();
+				return;
 			}
-			return;
+			
 			//This os old unused stuff. It's here for reference and to copy the old implementation into new Classes for them...
 			// PING - PONG
 			if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix + "playPing")) {

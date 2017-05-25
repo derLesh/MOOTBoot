@@ -5,6 +5,7 @@ import de.lesh.mootboot.commands.*;
 import java.util.HashMap;
 import java.util.Map;
 
+import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
