@@ -31,7 +31,7 @@ public class BotListener extends ListenerAdapter{
 		idList.add(mootReiniee);	
 	}
 	
-
+        public static Map<Member, Integer> map = new HashMap<>();
 	
 	@Override
 	public void onMessageReceived(MessageReceivedEvent event) {
@@ -40,61 +40,48 @@ public class BotListener extends ListenerAdapter{
 			// PING - PONG
 			if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix + "playPing")) {
 				event.getChannel().sendMessage(event.getAuthor().getAsMention() + " Pong!").queue();
-			}
-		
-			// HELP Message
-			if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix + "help")){
+			}else if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix + "help")){
 				event.getChannel().sendMessage(help.help).queue();
-			}
-			
-			// TWTICH Message
-			if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix + "twitch lesh")){
+			}else if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix + "twitch lesh")){
 				event.getChannel().sendMessage(twitch.leshLive).queue();
 			}else if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix + "twitch noah")){
 				event.getChannel().sendMessage(twitch.noahLive).queue();
-			}else{
+			}else if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix+"twitch)){
 				event.getChannel().sendMessage(">> Der User ist nicht in der Livelist eingetragen");
-			}
-			
-			// AllMoots Message
-			if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix + "list")){
+			}else if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix + "list")){
 				event.getChannel().sendMessage(userList.allMoots).queue();
-			}
-			
-			if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix + "game")){
+			}else if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix + "game")){
 				//changeCurGame.changeGame("ewGame");
-			}
-			
-			if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix + "time")){
+			}else if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix + "time")){
 				event.getChannel().sendMessage(">> " + clock.currentTime()).queue();
-			}
-			
-			if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix + "ping")){
+			}else if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix + "ping")){
 				event.getChannel().sendMessage("Waiting for ping:")
 				.queue(msg->event.getChannel().sendMessage(new EmbedBuilder()
 						.addField("Ping:","**Discord Bot:** " + event.getJDA().getPing() + "ms\n" /*+ "**You:** " + String.valueOf((msg.getCreationTime().getNano() / 1000000) - (event.getMessage().getCreationTime().getNano() / 1000000)) +"ms"*/, true)
 						.setColor(java.awt.Color.WHITE)
 						.build())
 						.queue());
-			}
-			
-			
-			
-			
-			
-			if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix + "user")){
+			}else if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix + "user")){
 				event.getChannel().sendMessage("Generating Infocard for: " + event.getAuthor().getName())
 						.queue(msg->event.getChannel().sendMessage(new EmbedBuilder()
 									.setAuthor("Infocard for: " + event.getAuthor().getName(), null, event.getJDA().getSelfUser().getAvatarUrl())
 									.addField("Member", event.getAuthor().getAsMention(), true)
 									.addBlankField(true)
-									.addField("Send Messages", String.valueOf(Main.sentMSG + 1), true)
+									.addField("Sent Messages", String.valueOf(
+										map.getOrDefault(event.getAuthor(),0))
+										  , true)
 									.setColor(java.awt.Color.GREEN)
 									.build())
 									.queue());
+			}else {
+				//if sent message wasn't a command:
+			        Member m = event.getAuthor();
+				map.put(m, map.getOrDefault(m,0)+1);//increment message value
 			}
 		}else{
-			//event.getChannel().sendMessage(event.getAuthor().getAsMention() + " >> Du hast keine Berechtigung daf¸r!").queue();
+			Member m = event.getAuthor();
+			map.put(m, map.getOrDefault(m,0)+1);//increment message value
+			//event.getChannel().sendMessage(event.getAuthor().getAsMention() + " >> Du hast keine Berechtigung daf√ºr!").queue();
 		}
 	}
 }
