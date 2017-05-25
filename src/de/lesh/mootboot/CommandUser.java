@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import net.dv8tion.jda.core.EmbedBuilder;
+import net.dv8tion.jda.core.MessageBuilder;
 import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
@@ -13,8 +14,7 @@ public class CommandUser implements Command{
   private static Map<User, Integer> map = new HashMap<>();
   
   public void execute(String commandline, String[] args, MessageReceivedEvent event) {
-				event.getChannel().sendMessage("Generating Infocard for: " + event.getAuthor().getName())
-						.queue(msg->event.getChannel().sendMessage(new EmbedBuilder()
+			event.getChannel().sendMessage(new MessageBuilder().append("Generating Infocard for: " + event.getAuthor().getName()).setEmbed(new EmbedBuilder()
 									.setAuthor("Infocard for: " + event.getAuthor().getName(), null, event.getJDA().getSelfUser().getAvatarUrl())
 									.addField("Member", event.getAuthor().getAsMention(), true)
 									.addBlankField(true)
@@ -22,8 +22,7 @@ public class CommandUser implements Command{
 										map.getOrDefault(event.getAuthor(),0))
 										  , true)
 									.setColor(java.awt.Color.GREEN)
-									.build())
-                  .queue());
+									.build()).build()).queue();
   }
   
   public void onMessageAnyReceived(MessageReceivedEvent event){
