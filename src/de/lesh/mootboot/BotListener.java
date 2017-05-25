@@ -24,13 +24,9 @@ public class BotListener extends ListenerAdapter{
 	
 	public static List<Long> idList = new ArrayList<>();
 	
-<<<<<<< HEAD
+
 	public static Command[] commands = new Command[]{new CommandUser()};
-=======
-	public static Command[] commands = new Command[]{
-		new CommandUser()};
->>>>>>> origin/master
-	
+
 	public void onReady(ReadyEvent e){
 		idList.add(mootLesh);
 		idList.add(mootCAnders);
