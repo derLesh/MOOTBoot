@@ -78,8 +78,20 @@ public class BotListener extends ListenerAdapter{
 						.queue());
 			}
 			
+			
+			
+			
+			
 			if(event.getMessage().getRawContent().equalsIgnoreCase(lib.prefix + "user")){
-				event.getChannel().sendMessage(userInfo.onMessageRecieved(e));
+				event.getChannel().sendMessage("Generating Infocard for: " + event.getAuthor().getName())
+						.queue(msg->event.getChannel().sendMessage(new EmbedBuilder()
+									.setAuthor("Infocard for: " + event.getAuthor().getName(), null, event.getJDA().getSelfUser().getAvatarUrl())
+									.addField("Member", event.getAuthor().getAsMention(), true)
+									.addBlankField(true)
+									.addField("Send Messages", String.valueOf(Main.sentMSG + 1), true)
+									.setColor(java.awt.Color.GREEN)
+									.build())
+									.queue());
 			}
 		}else{
 			//event.getChannel().sendMessage(event.getAuthor().getAsMention() + " >> Du hast keine Berechtigung dafür!").queue();

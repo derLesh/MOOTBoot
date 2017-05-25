@@ -15,6 +15,8 @@ public class Main {
 	public static JDA jda;
 	public static final String BOT_TOKEN ="MzE1NzYwMTAzMjA4Nzc5Nzc3.DALcLg.1zVjPHX2RzPvJouWCjrnTA1J9Ao";
 
+	public static int sentMSG = 0;
+	
 	public static void main(String[] args){
 		try { jda = (JDA) new JDABuilder(AccountType.BOT)
 					.addEventListener(new BotListener())
