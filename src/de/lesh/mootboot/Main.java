@@ -23,14 +23,12 @@ public class Main {
 		jdaB.addEventListener(new userInfo());
 		jdaB.addEventListener(new changeGame());
 		
+		jda = jdaB.buildBlocking();
+		
 	}
 	public static JDA getSetup(){
 		return jda;
 	}
 }
-	
-	public static void main(String[] args) throws Exception{
-		jda = jdaB.buildBlocking();
-	}
 	
 
