@@ -1,9 +1,7 @@
 package de.lesh.mootboot.commands;
 
-import java.text.SimpleDateFormat;
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 public class clock {
 
