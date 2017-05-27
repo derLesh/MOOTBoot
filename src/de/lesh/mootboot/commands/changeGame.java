@@ -7,6 +7,7 @@ import de.lesh.mootboot.user.bannedList;
 import de.lesh.mootboot.user.permittedList;
 import net.dv8tion.jda.core.entities.Game;
 import net.dv8tion.jda.core.entities.Message;
+import net.dv8tion.jda.core.events.ReadyEvent;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
@@ -14,7 +15,7 @@ public class changeGame extends ListenerAdapter {
 
 	public static List<Long> perm = new ArrayList<>();
 	
-	public void onReady(){
+	public void onReady(ReadyEvent e){
 		perm.add(155704314638106624L);
 	}
 	
