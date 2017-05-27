@@ -2,6 +2,7 @@ package de.lesh.mootboot;
 
 import de.lesh.mootboot.commands.*;
 import de.lesh.mootboot.info.userInfo;
+import de.lesh.mootboot.user.permittedList;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
@@ -23,14 +24,14 @@ public class Main {
 		jdaB.addEventListener(new userInfo());
 		jdaB.addEventListener(new changeGame());
 		
+		jda = jdaB.buildBlocking();
+		
 	}
 	public static JDA getSetup(){
 		return jda;
 	}
-}
 	
-	public static void main(String[] args) throws Exception{
-		jda = jdaB.buildBlocking();
+	public static void onReady(){
+		permittedList.perm.add(155704314638106624L);
 	}
-	
-
+}
