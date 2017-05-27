@@ -7,6 +7,8 @@ import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.entities.Game;
 
+import java.lang.Exception;
+
 public class Main {
 	
 	public static JDA jda;
@@ -15,7 +17,7 @@ public class Main {
 	
 	public static void main(String[] args) throws Exception {
 		
-		jdaB.setToken(bot_token.BOT_TOKEN).setGame(Game.of("-help")).setAutoReconnect(true).buildBlocking().asBot();
+		jdaB.setToken(bot_token.BOT_TOKEN).setGame(Game.of("-help")).setAutoReconnect(true);
 		jdaB.addEventListener(new botInfo());
 		jdaB.addEventListener(new pingPongGame());
 		jdaB.addEventListener(new userInfo());
@@ -27,19 +29,8 @@ public class Main {
 	}
 }
 	
-//	public static void main(String[] args){
-//		try { jda = (JDA) new JDABuilder(AccountType.BOT)
-//					//.addEventListener(new BotListener())
-//					.addEventListener(new userInfo())
-//					.addEventListener(new botInfo())
-//					.addEventListener(new pingPongGame())
-//					.setToken(bot_token.BOT_TOKEN)
-//					.setAutoReconnect(true)
-//					.setGame(Game.of("Moot Moot"))
-//					.buildBlocking().asBot();
-//		} catch (LoginException | IllegalArgumentException | InterruptedException | RateLimitedException e) {
-//			e.printStackTrace();
-//		}
-//	}
+	public static void main(String[] args) throws Exception{
+		jda = jdaB.buildBlocking();
+	}
 	
 
