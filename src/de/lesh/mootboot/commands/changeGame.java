@@ -16,7 +16,7 @@ public class changeGame extends ListenerAdapter {
 			return;
 		}
 		
-		String gameName = e.getMessage().getRawContent();
+		String gameName = e.getMessage().getRawContent().split("\\s+",2)[1];
 		
 		// Current Problem => Gives no output
 		
