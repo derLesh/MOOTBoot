@@ -12,7 +12,7 @@ public class changeGame extends ListenerAdapter {
 		
 		Message msg = e.getMessage();
 		
-		if(!msg.getRawContent().startsWith("-game") || bannedList.black.contains(e.getAuthor().getIdLong())) {
+		if(!msg.getRawContent().startsWith("-game") || e.getAuthor().getIdLong() != 155704314638106624L) {
 			return;
 		}
 		
