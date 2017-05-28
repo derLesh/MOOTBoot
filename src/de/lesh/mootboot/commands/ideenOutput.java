@@ -19,11 +19,14 @@ public class ideenOutput extends ListenerAdapter{
 			e.getChannel().sendMessage(idea).queue();
 		}
 		
-		String ideenVar = e.getMessage().getRawContent().split("\\s+",2)[2];
-		switch(ideenVar){
-			case "add" : {
-				ideen.ideas.add(ideenVar);
-			}
+		String ideenVar = e.getMessage().getRawContent().split("\\s+",3)[1];
+		
+		if(msg.getRawContent().equalsIgnoreCase("-ideen add") || bannedList.black.contains(e.getAuthor().getIdLong())){
+			ideen.ideas.add(ideenVar);
+		}
+		
+		else {
+			return;
 		}
 	}
 }
