@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.dv8tion.jda.core.events.ReadyEvent;
+import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
-public class permittedList {
+public class permittedList extends ListenerAdapter{
 
 	public static List<Long> perm = new ArrayList<>();
 	
-	public static void onReady(ReadyEvent e){
+	public void onReady(ReadyEvent e){
 		perm.add(155704314638106624L);
 	}
 	

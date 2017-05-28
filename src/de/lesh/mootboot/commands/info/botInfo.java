@@ -13,7 +13,7 @@ public class botInfo extends ListenerAdapter {
 		Message msg = e.getMessage();
 		EmbedBuilder eB = new EmbedBuilder();
 		
-		if(!msg.getRawContent().startsWith("-info") || bannedList.black.contains(e.getAuthor().getIdLong())){
+		if(!msg.getRawContent().startsWith("-info") || bannedList.black.contains(e.getAuthor().getIdLong()) || e.getAuthor().isBot()){
 			return;
 		}
 			
@@ -24,8 +24,9 @@ public class botInfo extends ListenerAdapter {
 		
 		
 		eB.setAuthor(lib.bot_name, null, lib.bot_image);
-		eB.addField("Creator", e.getAuthor().getAsMention(), true);
-		eB.addField("GitHub", "[MOOTBooT](https://github.com/LeshDev/MOOTBoot/tree/master/src/de/lesh/mootboot)", false);
+		eB.addField("Creator", "@Lesh#2412", true);
+		eB.addField("GitHub", "[MOOTBooT](https://github.com/LeshDev/MOOTBoot/tree/master/src/de/lesh/mootboot)", true);
+		eB.addField("Safe since", "28.05.2017 - 21:51", true);
 		eB.setThumbnail(lib.bot_image);
 		
 		

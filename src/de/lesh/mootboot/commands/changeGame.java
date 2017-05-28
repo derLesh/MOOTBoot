@@ -24,7 +24,7 @@ public class changeGame extends ListenerAdapter {
 		
 		Message msg = e.getMessage();
 		
-		if(!msg.getRawContent().startsWith("-game") || bannedList.black.contains(e.getAuthor().getIdLong()) || !permittedList.perm.contains(e.getAuthor().getIdLong())) {
+		if(!msg.getRawContent().startsWith("-game") || e.getAuthor().isBot() || bannedList.black.contains(e.getAuthor().getIdLong()) || !permittedList.perm.contains(e.getAuthor().getIdLong())) {
 			return;
 		}
 		

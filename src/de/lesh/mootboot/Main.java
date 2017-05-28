@@ -2,7 +2,7 @@ package de.lesh.mootboot;
 
 import de.lesh.mootboot.commands.*;
 import de.lesh.mootboot.commands.info.*;
-import de.lesh.mootboot.user.permittedList;
+import de.lesh.mootboot.user.*;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
@@ -22,11 +22,14 @@ public class Main {
 		jdaB.setToken(bot_token.BOT_TOKEN).setGame(Game.of("-help")).setAutoReconnect(true);
 		jdaB.addEventListener(new botInfo());
 		jdaB.addEventListener(new ideen());
+		jdaB.addEventListener(new permittedList());
+		jdaB.addEventListener(new bannedList());
 		jdaB.addEventListener(new pingPongGame());
 		jdaB.addEventListener(new userInfo());
 		jdaB.addEventListener(new changeGame());
 		jdaB.addEventListener(new botPing());
 		jdaB.addEventListener(new ideenOutput());
+		jdaB.addEventListener(new botHelp());
 		
 		jda = jdaB.buildBlocking();
 		

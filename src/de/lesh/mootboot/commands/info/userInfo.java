@@ -1,13 +1,9 @@
 package de.lesh.mootboot.commands.info;
 
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import de.lesh.mootboot.user.bannedList;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.Message;
-import net.dv8tion.jda.core.entities.Role;
 import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
@@ -20,7 +16,7 @@ public class userInfo extends ListenerAdapter{
 		
 		//List<Role>.stream().map(Role::getName).collect(Collectors.join(", "))
 		
-		if(!msg.getRawContent().startsWith("-user") || bannedList.black.contains(e.getAuthor().getIdLong())) {
+		if(!msg.getRawContent().startsWith("-user") || bannedList.black.contains(e.getAuthor().getIdLong()) || e.getAuthor().isBot()) {
 			return;
 		}
 		

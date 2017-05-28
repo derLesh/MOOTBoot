@@ -3,7 +3,9 @@ package de.lesh.mootboot.user;
 import java.util.ArrayList;
 import java.util.List;
 
-public class bannedList {
+import net.dv8tion.jda.core.hooks.ListenerAdapter;
+
+public class bannedList extends ListenerAdapter{
 
 	public static List<Long> black = new ArrayList<>();
 	
