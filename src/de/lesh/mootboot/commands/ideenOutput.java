@@ -18,5 +18,12 @@ public class ideenOutput extends ListenerAdapter{
 		for(String idea : ideen.ideas){
 			e.getChannel().sendMessage(idea).queue();
 		}
+		
+		String ideenVar = e.getMessage().getRawContent().split("\\s+",2)[2];
+		switch(ideenVar){
+			case "add" : {
+				ideen.ideas.add(ideenVar);
+			}
+		}
 	}
 }

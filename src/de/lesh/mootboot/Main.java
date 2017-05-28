@@ -7,6 +7,7 @@ import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.entities.Game;
+import net.dv8tion.jda.core.events.ReadyEvent;
 
 import java.lang.Exception;
 
@@ -20,6 +21,7 @@ public class Main {
 		
 		jdaB.setToken(bot_token.BOT_TOKEN).setGame(Game.of("-help")).setAutoReconnect(true);
 		jdaB.addEventListener(new botInfo());
+		jdaB.addEventListener(new ideen());
 		jdaB.addEventListener(new pingPongGame());
 		jdaB.addEventListener(new userInfo());
 		jdaB.addEventListener(new changeGame());
@@ -33,7 +35,7 @@ public class Main {
 		return jda;
 	}
 	
-	public static void onReady(){
+	public static void onReady(ReadyEvent e){
 		permittedList.perm.add(155704314638106624L);
 	}
 }
