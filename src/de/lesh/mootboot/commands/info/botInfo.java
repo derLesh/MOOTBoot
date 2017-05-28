@@ -24,7 +24,7 @@ public class botInfo extends ListenerAdapter {
 		
 		
 		eB.setAuthor(lib.bot_name, null, lib.bot_image);
-		eB.addField("Creator", "@Lesh#2412", true);
+		eB.addField("Creator", "<@!155704314638106624>", true);
 		eB.addField("GitHub", "[MOOTBooT](https://github.com/LeshDev/MOOTBoot/tree/master/src/de/lesh/mootboot)", true);
 		eB.addField("Safe since", "28.05.2017 - 21:51", true);
 		eB.setThumbnail(lib.bot_image);
