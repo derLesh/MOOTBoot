@@ -24,7 +24,7 @@ public class changeGame extends ListenerAdapter {
 		
 		Message msg = e.getMessage();
 		
-		if(!msg.getRawContent().startsWith("-game") || bannedList.black.contains(e.getAuthor().getIdLong()) || !perm.contains(e.getAuthor().getIdLong())) {
+		if(!msg.getRawContent().startsWith("-game") || bannedList.black.contains(e.getAuthor().getIdLong()) || !permittedList.perm.contains(e.getAuthor().getIdLong())) {
 			return;
 		}
 		
@@ -34,6 +34,6 @@ public class changeGame extends ListenerAdapter {
 		
 		// Main.jdaB.setGame(Game.of(gameName));
 		e.getJDA().getPresence().setGame(Game.of(gameName));
-		System.out.println("b");
+		System.out.println("Succesfull changed the game to: " + gameName);
 	}
 }

@@ -1,4 +1,4 @@
-package de.lesh.mootboot.commands;
+package de.lesh.mootboot.commands.info;
 
 import de.lesh.mootboot.lib;
 import de.lesh.mootboot.user.bannedList;

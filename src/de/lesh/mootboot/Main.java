@@ -1,7 +1,7 @@
 package de.lesh.mootboot;
 
 import de.lesh.mootboot.commands.*;
-import de.lesh.mootboot.info.userInfo;
+import de.lesh.mootboot.commands.info.*;
 import de.lesh.mootboot.user.permittedList;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
@@ -23,6 +23,7 @@ public class Main {
 		jdaB.addEventListener(new pingPongGame());
 		jdaB.addEventListener(new userInfo());
 		jdaB.addEventListener(new changeGame());
+		jdaB.addEventListener(new botPing());
 		
 		jda = jdaB.buildBlocking();
 		

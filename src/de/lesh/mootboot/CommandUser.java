@@ -10,7 +10,7 @@ import net.dv8tion.jda.core.MessageBuilder;
 import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
-public class CommandUser implements Command{
+public class CommandUser {
   private static Map<User, Integer> map = new HashMap<>();
   
   public void execute(String commandline, String[] args, MessageReceivedEvent event) {

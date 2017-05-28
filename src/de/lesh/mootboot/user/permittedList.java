@@ -9,7 +9,7 @@ public class permittedList {
 
 	public static List<Long> perm = new ArrayList<>();
 	
-	public void onReady(ReadyEvent e){
+	public static void onReady(ReadyEvent e){
 		perm.add(155704314638106624L);
 	}
 	

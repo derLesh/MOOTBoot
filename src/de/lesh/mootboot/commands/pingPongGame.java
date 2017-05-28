@@ -10,7 +10,7 @@ public class pingPongGame extends ListenerAdapter{
 	public void onMessageReceived(MessageReceivedEvent e){
 		Message msg = e.getMessage();
 		
-		if(!msg.getRawContent().startsWith("-ping") || bannedList.black.contains(e.getAuthor().getIdLong())){
+		if(!msg.getRawContent().startsWith("-pingGame") || bannedList.black.contains(e.getAuthor().getIdLong())){
 			return;
 		}
 		if(!e.equals(e.getJDA().getSelfUser())){
