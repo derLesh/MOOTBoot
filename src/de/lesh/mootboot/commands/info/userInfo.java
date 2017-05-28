@@ -32,7 +32,7 @@ public class userInfo extends ListenerAdapter{
 		eB.addField("**ID**:", "" + author.getIdLong(), true);
 		eB.addField("**Sent messages**:", "__Coming soon__", true);
 		eB.addField("**Creted**:", "" + author.getCreationTime(), true);
-		eB.addField("**Roles**:", "" + e.IrgendwasHELp, true);
+		//eB.addField("**Roles**:", "" + e.IrgendwasHELp, true);
 		
 		eB.setThumbnail(author.getEffectiveAvatarUrl());
 		eB.setColor(java.awt.Color.CYAN);

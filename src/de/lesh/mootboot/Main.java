@@ -24,6 +24,7 @@ public class Main {
 		jdaB.addEventListener(new userInfo());
 		jdaB.addEventListener(new changeGame());
 		jdaB.addEventListener(new botPing());
+		jdaB.addEventListener(new ideenOutput());
 		
 		jda = jdaB.buildBlocking();
 		
