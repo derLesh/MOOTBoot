@@ -11,7 +11,7 @@ public class ideenOutput extends ListenerAdapter{
 	public void onMessageReceived(MessageReceivedEvent e){
 		Message msg = e.getMessage();
 		
-		if(!msg.getRawContent().equalsIgnoreCase("-ideen") || bannedList.black.contains(e.getAuthor().getIdLong())){
+		if(!msg.getRawContent().toLowerCase().startsWith("-ideen") || bannedList.black.contains(e.getAuthor().getIdLong())){
 			return;
 		}
 		
@@ -19,14 +19,9 @@ public class ideenOutput extends ListenerAdapter{
 			e.getChannel().sendMessage(idea).queue();
 		}
 		
-		String ideenVar = e.getMessage().getRawContent().split("\\s+",3)[1];
-		
-		if(msg.getRawContent().equalsIgnoreCase("-ideen add") || bannedList.black.contains(e.getAuthor().getIdLong())){
-			ideen.ideas.add(ideenVar);
-		}
-		
-		else {
-			return;
-		}
+		String ideenVar = e.getMessage().getRawContent().split("\\s+",3)[2];
+	    if(msg.getRawContent().toLowerCase().startsWith("-ideen add") && !bannedList.black.contains(e.getAuthor().getIdLong())){
+	    	ideen.ideas.add(ideenVar);    
+	    }
 	}
 }
