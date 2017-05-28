@@ -1,5 +1,7 @@
 package de.lesh.mootboot.commands;
 
+import java.io.*;
+
 import de.lesh.mootboot.ideen;
 import de.lesh.mootboot.user.bannedList;
 import net.dv8tion.jda.core.entities.Message;
@@ -10,6 +12,8 @@ public class ideenOutput extends ListenerAdapter{
 
 	public void onMessageReceived(MessageReceivedEvent e){
 		Message msg = e.getMessage();
+		FileInputStream in = null;
+		FileOutputStream out = null;
 		
 		if(!msg.getRawContent().toLowerCase().startsWith("-ideen") || bannedList.black.contains(e.getAuthor().getIdLong())){
 			return;
