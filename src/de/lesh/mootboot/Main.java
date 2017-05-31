@@ -21,11 +21,12 @@ public class Main {
 		
 		jdaB.setToken(bot_token.BOT_TOKEN).setGame(Game.of("-help")).setAutoReconnect(true);
 		jdaB.addEventListener(new botInfo());
+		jdaB.addEventListener(new userInfo());
+		jdaB.addEventListener(new serverInfo());
 		jdaB.addEventListener(new ideen());
 		jdaB.addEventListener(new permittedList());
 		jdaB.addEventListener(new bannedList());
 		jdaB.addEventListener(new pingPongGame());
-		jdaB.addEventListener(new userInfo());
 		jdaB.addEventListener(new changeGame());
 		jdaB.addEventListener(new botPing());
 		jdaB.addEventListener(new ideenOutput());
