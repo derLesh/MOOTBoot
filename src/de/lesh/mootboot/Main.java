@@ -20,17 +20,18 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		
 		jdaB.setToken(bot_token.BOT_TOKEN).setGame(Game.of("-help")).setAutoReconnect(true);
-		jdaB.addEventListener(new botInfo());
-		jdaB.addEventListener(new userInfo());
-		jdaB.addEventListener(new serverInfo());
-		jdaB.addEventListener(new ideen());
-		jdaB.addEventListener(new permittedList());
-		jdaB.addEventListener(new bannedList());
-		jdaB.addEventListener(new pingPongGame());
-		jdaB.addEventListener(new changeGame());
-		jdaB.addEventListener(new botPing());
-		jdaB.addEventListener(new ideenOutput());
-		jdaB.addEventListener(new botHelp());
+		jdaB.addEventListener(new botInfo())
+			.addEventListener(new userInfo())
+			.addEventListener(new serverInfo())
+			.addEventListener(new ideen())
+			.addEventListener(new permittedList())
+			.addEventListener(new bannedList())
+			.addEventListener(new pingPongGame())
+			.addEventListener(new changeGame())
+			.addEventListener(new botPing())
+			.addEventListener(new ideenOutput())
+			.addEventListener(new botHelp())
+			.addEventListener(new clock());
 		
 		jda = jdaB.buildBlocking();
 		
