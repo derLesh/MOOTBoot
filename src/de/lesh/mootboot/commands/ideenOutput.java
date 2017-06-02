@@ -16,17 +16,18 @@ public class ideenOutput extends ListenerAdapter{
 		FileInputStream in = null;
 		FileOutputStream out = null;
 		
-		if(!msg.getRawContent().toLowerCase().startsWith("-ideen") || bannedList.black.contains(e.getAuthor().getIdLong()) || e.getAuthor().isBot() || !permittedList.perm.contains(e.getAuthor().getIdLong())){
+		if(!msg.getRawContent().toLowerCase().startsWith("-ideen") || bannedList.black.contains(e.getAuthor().getIdLong()) || e.getAuthor().isBot()){
 			return;
 		}
-		
+		StringBuilder sb = new StringBuilder();
 		for(String idea : ideen.ideas){
-			e.getChannel().sendMessage(idea).queue();
+			sb.append(idea+"\n");
 		}
+		e.getChannel().sendMessage(sb.toString()).queue();
 		
-		String ideenVar = e.getMessage().getRawContent().split("\\s+",3)[2];
-	   	if(msg.getRawContent().toLowerCase().startsWith("-ideen add")){
-	    		ideen.ideas.add(ideenVar);    
-	    	}
+		String[] ideen = e.getMessage().getRawContent().split("\\s+",3)[2];
+	   	if (ideen[1].equalsIgroneCase("add") && permittedList.perm.contains(e.getAuthor().getIdLong())) {
+			ideen.ideas.add(ideenVar); 
+		}
 	}
 }
