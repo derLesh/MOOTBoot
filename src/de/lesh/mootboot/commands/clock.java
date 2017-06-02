@@ -13,11 +13,9 @@ import de.lesh.mootboot.lib;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class clock extends ListenerAdapter{
-
-	private static final DateTimeFormatter TIME_FORMAT = DateTimeFormatter.ofPattern("dd.MM.YYYY HH:mm:ss");
 	
 	public static String currentTime(){
-		return OffsetDateTime.now().format(TIME_FORMAT);
+		return OffsetDateTime.now().format(DateTimeFormatter.ofPattern("dd.MM.YYYY HH:mm:ss"));
 	}
 	
 	public static String getDescription(){
