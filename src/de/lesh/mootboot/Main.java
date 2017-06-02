@@ -31,6 +31,7 @@ public class Main {
 		jdaB.addEventListener(new botPing());
 		jdaB.addEventListener(new ideenOutput());
 		jdaB.addEventListener(new botHelp());
+		jdaB.addEventListener(new clock());
 		
 		jda = jdaB.buildBlocking();
 		
