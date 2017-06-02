@@ -33,8 +33,11 @@ public class clock extends ListenerAdapter{
 		eB.setTitle("Time");
 		eB.setColor(lib.randomColor());
 		eB.setDescription(currentTime());
-		e.getChannel().sendMessage(eB.build()).queue(msg -> {
-            		if (msg.getRawContent().contains("temp")) msg.delete().queueAfter(5, SECONDS);
+		e.getChannel().sendMessage(eB.build()).queue(sentMsg -> {
+            		if (msg.getRawContent().contains("temp")){
+				sentMsg.delete().queueAfter(5, SECONDS);
+				msg.delete().queue();
+			}
         	});
 	}
 	
