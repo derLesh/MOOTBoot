@@ -22,6 +22,7 @@ public class serverInfo extends ListenerAdapter{
 		eB.addField("**Owner**", "" + e.getGuild().getOwner().getEffectiveName(), true);
 		eB.addField("Name", "" + e.getGuild().getName(), true);
 		eB.addField("**Region**", e.getGuild().getRegion().getName(), true);
+		eB.setColor(java.awt.Color.RED);
 		
 		e.getChannel().sendMessage(eB.build()).queue();
 		

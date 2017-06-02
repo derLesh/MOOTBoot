@@ -25,6 +25,7 @@ public class changeGame extends ListenerAdapter {
 		Message msg = e.getMessage();
 		
 		if(!msg.getRawContent().startsWith("-game") || e.getAuthor().isBot() || bannedList.black.contains(e.getAuthor().getIdLong()) || !permittedList.perm.contains(e.getAuthor().getIdLong())) {
+			e.getChannel().sendMessage("[ERROR] >> Dieser Befehl ist geschützt").complete();
 			return;
 		}
 		

@@ -1,10 +1,14 @@
 package de.lesh.mootboot.commands.info;
 
 
+import java.util.stream.Collectors;
+
 import de.lesh.mootboot.user.bannedList;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.Member;
 import net.dv8tion.jda.core.entities.Message;
+import net.dv8tion.jda.core.entities.Role;
+import net.dv8tion.jda.core.entities.TextChannel;
 import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
@@ -26,6 +30,7 @@ public class userInfo extends ListenerAdapter{
 		}
 		List<User> mentionedUser = msg.getMentionedUser();
 		
+
 		if (mentionedUser.isEmpty()) {
 			sendInfo(e.getAuthor(), e.getTextChannel());
 			return;

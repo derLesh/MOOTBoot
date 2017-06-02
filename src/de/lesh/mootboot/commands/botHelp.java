@@ -23,7 +23,7 @@ public class botHelp extends ListenerAdapter{
 		eB.addField("*Bot Info*", "-info > Gives infos about the bot", true);
 		eB.addField("*User info*", "-user <String> > Gives infos about the user", true);
 		eB.addField("*Change Game*", "-game <String> > Change the 'Playing' status", true);
-		
+		eB.setColor(java.awt.Color.YELLOW);
 		
 		e.getChannel().sendMessage(eB.build()).queue();
 	}
