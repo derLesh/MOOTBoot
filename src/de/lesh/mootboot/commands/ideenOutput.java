@@ -25,8 +25,8 @@ public class ideenOutput extends ListenerAdapter{
 		}
 		
 		String ideenVar = e.getMessage().getRawContent().split("\\s+",3)[2];
-	    if(msg.getRawContent().toLowerCase().startsWith("-ideen add") && !bannedList.black.contains(e.getAuthor().getIdLong())){
-	    	ideen.ideas.add(ideenVar);    
-	    }
+	   	if(msg.getRawContent().toLowerCase().startsWith("-ideen add")){
+	    		ideen.ideas.add(ideenVar);    
+	    	}
 	}
 }
