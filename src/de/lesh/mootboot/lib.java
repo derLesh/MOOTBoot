@@ -13,4 +13,13 @@ public class lib {
 	
 	public static final String prefix = "-";
 	public static int sentMSG = 0;
+	
+	public static Random rand = new Random();
+	
+	public static Color randomColor() {
+		float r = rand.nextFloat();
+		float g = rand.nextFloat();
+		float b = rand.nextFloat();
+		return  new Color(r, g, b);
+	}
 }
