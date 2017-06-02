@@ -37,7 +37,7 @@ public class userInfo extends ListenerAdapter{
 		eB.addField("**ID**:", "" + u.getIdLong(), true);
 		eB.addField("**Sent messages**:", "__Coming soon__", true);
 		eB.addField("**Created**:", "" + u.getCreationTime(), true);
-		eB.addField("**Roles**:", ""+member.getRoles().stream().map(Role::getName).collect(Collectors.join(", "))
+		eB.addField("**Roles**:", ""+member.getRoles().stream().map(Role::getName).collect(Collectors.join(", ")), false);
 		eB.setThumbnail(u.getEffectiveAvatarUrl());
 		eB.setColor(java.awt.Color.CYAN);
 		channel.sendMessage(eB.build()).queue();
