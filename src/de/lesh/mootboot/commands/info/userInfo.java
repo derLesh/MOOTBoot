@@ -41,7 +41,7 @@ public class userInfo extends ListenerAdapter{
         	eB.setAuthor("Infocard >> " + u.getName(), null, u.getEffectiveAvatarUrl());
         	eB.addField("**User**:", u.getAsMention(), true);
         	eB.addField("**ID**:", "" + u.getIdLong(), true);
-       		eB.addField("**Message Frequency**:", channel.getHistory().retrievePast(MESSAGE_LOOKBACK_COUNT).complete().stream().filter(e->e.getAuthor().equals(u)).count()/((double)MESSAGE_LOOKBACK_COUNT), true);
+       		eB.addField("**Message Frequency**:", "" + channel.getHistory().retrievePast(MESSAGE_LOOKBACK_COUNT).complete().stream().filter(e->e.getAuthor().equals(u)).count()/((double)MESSAGE_LOOKBACK_COUNT), true);
         	eB.addField("**Created**:", "" + u.getCreationTime(), true);
         	eB.addField("**Roles**:", ""+member.getRoles().stream().map(Role::getName).collect(Collectors.joining(" - ")), true);
         	eB.setThumbnail(u.getEffectiveAvatarUrl());
