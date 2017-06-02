@@ -15,7 +15,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 public class clock extends ListenerAdapter{
 	
 	public static String currentTime(){
-		return OffsetDateTime.now().format(DateTimeFormatter.ofPattern("dd.MM.YYYY HH:mm:ss"));
+		return OffsetDateTime.now().format(DateTimeFormatter.ofPattern("dd.MM.YYYY HH:mm:ss | KK:mm:ss a"));
 	}
 	
 	public static String getDescription(){
