@@ -13,6 +13,11 @@ import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
+import java.util.List;
+import java.util.ArrayList
+import java.time.format.DateTimeFormatter;
+import java.awt.Color;
+
 public class userInfo extends ListenerAdapter{
 
 	public void onMessageReceived(MessageReceivedEvent e){
@@ -23,27 +28,29 @@ public class userInfo extends ListenerAdapter{
 		if(!msg.getRawContent().startsWith("-user") || bannedList.black.contains(e.getAuthor().getIdLong()) || e.getAuthor().isBot()) {
 			return;
 		}
+		List<User> mentionedUser = msg.getMentionedUser();
 		
-		if(e.getMessage().getMentionedUsers().size()>0){
-			for(User u:e.getMessage().getMentionedUsers()){
-				sendInfo(e.getGuild().getMember(u),e.getTextChannel());
-			}
+
+		if (mentionedUser.isEmpty()) {
+			sendInfo(e.getAuthor(), e.getTextChannel());
+			return;
 		} else {
-			sendInfo(e.getMember(), (TextChannel) e.getChannel());
+			for (User user : mentionedUser) {
+				sendInfo(user, e.getTextChannel());
+			}
 		}
 	}
 	
-	public static void sendInfo(Member member, TextChannel channel){
+	public static void sendInfo(User u, TextChannel channel){
 		EmbedBuilder eB = new EmbedBuilder();
-		User u = member.getUser();
 		eB.setAuthor("Infocard >> " + u.getName(), null, u.getEffectiveAvatarUrl());
 		eB.addField("**User**:", u.getAsMention(), true);
 		eB.addField("**ID**:", "" + u.getIdLong(), true);
 		eB.addField("**Sent messages**:", "__Coming soon__", true);
-		eB.addField("**Created**:", "" + u.getCreationTime(), true);
-		eB.addField("**Roles**:", ""+member.getRoles().stream().map(Role::getName).collect(Collectors.joining(" - ")), true);
+		eB.addField("**Created**:", "" + u.getCreationTime().format(DateTimeFormatter.ofPattern("dd.MM.YYYY HH:mm:ss")), true);
+		eB.addField("**Roles**:", ""+member.getRoles().stream().map(Role::getName).collect(Collectors.join(" - ")), false);
 		eB.setThumbnail(u.getEffectiveAvatarUrl());
-		eB.setColor(java.awt.Color.CYAN);
+		eB.setColor(Color.CYAN);
 		channel.sendMessage(eB.build()).queue();
 	}
 	
