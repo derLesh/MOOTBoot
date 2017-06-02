@@ -19,13 +19,15 @@ public class userInfo extends ListenerAdapter{
 		if(!msg.getRawContent().startsWith("-user") || bannedList.black.contains(e.getAuthor().getIdLong()) || e.getAuthor().isBot()) {
 			return;
 		}
+		List<User> mentionedUser = msg.getMentionedUser();
 		
-		if(e.getMessage().getMentionedUsers().size()>0){
-			for(User u:e.getMessage().getMentionedUsers()){
-				sendInfo(e.getGuild().getMember(u));
-			}
+		if (mentionedUser.isEmpty()) {
+			sendInfo(e.getMember(), e.getTextChannel());
+			return;
 		} else {
-			sendInfo(e.getAuthor(),e.getChannel());
+			for (User user : mentionedUser) {
+				sendInfo(e.getGuild().getMember(user), e.getTextChannel());
+			}
 		}
 	}
 	
