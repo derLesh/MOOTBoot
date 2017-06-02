@@ -25,9 +25,9 @@ public class ideenOutput extends ListenerAdapter{
 		}
 		e.getChannel().sendMessage(sb.toString()).queue();
 		
-		String[] ideen = e.getMessage().getRawContent().split("\\s+",3)[2];
-	   	if (ideen[1].equalsIgroneCase("add") && permittedList.perm.contains(e.getAuthor().getIdLong())) {
-			ideen.ideas.add(ideenVar); 
+		String ideens = e.getMessage().getRawContent().split("\\s+",3)[2];
+	   	if (ideens.equalsIgnoreCase("add") && permittedList.perm.contains(e.getAuthor().getIdLong())) {
+			ideen.ideas.add(ideens); 
 		}
 	}
 }
