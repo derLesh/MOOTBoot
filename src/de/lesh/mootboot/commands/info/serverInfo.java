@@ -21,7 +21,7 @@ public class serverInfo extends ListenerAdapter{
 		eB.setAuthor("Server Infos", null, lib.bot_image);
 		eB.addField("**Owner**", "" + e.getGuild().getOwner().getEffectiveName(), true);
 		eB.addField("Name", "" + e.getGuild().getName(), true);
-		eB.addField("**Region**", lib.server_reg, true);
+		eB.addField("**Region**", e.getGuild().getRegion().getName(), true);
 		
 		e.getChannel().sendMessage(eB.build()).queue();
 		
