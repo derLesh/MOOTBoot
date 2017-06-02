@@ -1,6 +1,7 @@
 package de.lesh.mootboot;
 
 import java.awt.Color;
+import java.util.Random;
 
 public class lib {
 
