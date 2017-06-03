@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+import net.dv8tion.jda.core.JDA;
+
 public class MainFrame extends JFrame {
 	
 	private static final long serialVersionUUID = 1l;
