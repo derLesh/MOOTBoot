@@ -18,14 +18,14 @@ public class MainFrame extends JFrame {
 		try {
 			ImageIcon gitHub = new ImageIcon(MainFrame.class.getResource("/de/lesh/mootboot/gui/github.png"),"GitHub");
 			b = new JButton("GitHub",gitHub);
-		} catch(IOException e) {
+		} catch(IOException ignored) {
 			b = new JButton("GitHub");
 		}
 		b.addActionListener(e->{
 			try{
 				Runtime.getRuntime().exec("start \"\" \"https://github.com/LeshDev/MOOTBoot/tree/master/src/de/lesh/mootboot\"");
-			}catch(IOException e) {
-				JOptionPane.showMessageDialog(frame, "https://github.com/LeshDev/MOOTBoot/tree/master/src/de/lesh/mootboot");
+			}catch(IOException ignored) {
+				JOptionPane.showMessageDialog(this, "https://github.com/LeshDev/MOOTBoot/tree/master/src/de/lesh/mootboot");
 			}
 		});//Linux compatibility kommt später... zu faul
 		this.add(b);
