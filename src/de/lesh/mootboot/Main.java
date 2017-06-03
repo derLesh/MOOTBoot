@@ -5,6 +5,7 @@ import de.lesh.mootboot.commands.info.*;
 import de.lesh.mootboot.misc.bot_token;
 import de.lesh.mootboot.misc.ideen;
 import de.lesh.mootboot.user.*;
+import de.lesh.mootboot.gui.*;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
@@ -17,6 +18,7 @@ public class Main {
 	
 	public static JDA jda;
 	public static JDABuilder jdaB = new JDABuilder(AccountType.BOT);
+	public static MainFrame frame;
 	public static int sentMSG = 0;
 	
 	public static void main(String[] args) throws Exception {
@@ -35,6 +37,7 @@ public class Main {
 		jdaB.addEventListener(new clock());
 		
 		jda = jdaB.buildBlocking();
+		frame = new MainFrame(jda);
 	}
 	public static JDA getSetup(){
 		return jda;
