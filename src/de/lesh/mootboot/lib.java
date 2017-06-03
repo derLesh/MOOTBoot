@@ -8,7 +8,7 @@ public class lib {
 	public static final String bot_name = "kuhlBot";
 	public static final String version = "0.0.6";
 	
-	public static final String bot_image = "http://leshdev.tk/bot/img/kuhlProgramming.png";
+	public static final String bot_image = "https://github.com/LeshDev/MOOTBoot/blob/master/src/de/lesh/mootboot/gui/kuhlProgramming3.png";
 	
 	public static final String server_reg = "Frankfurt";
 	

@@ -14,5 +14,4 @@ public class bannedList extends ListenerAdapter{
 	public void onReady(){
 		black.add(292371799604461568L);
 	}
-	
 }

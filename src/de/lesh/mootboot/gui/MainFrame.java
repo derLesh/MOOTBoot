@@ -1,16 +1,13 @@
 package de.lesh.mootboot.gui;
 
 import javax.swing.*;
-
 import de.lesh.mootboot.lib;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
-
 import net.dv8tion.jda.core.JDA;
 
 public class MainFrame extends JFrame {
+	
+	// THIS CLASS IS ONLY FOR CLIENT SIDED USERS - ALSO THIS ISNT WORKING IN THE SERVER VERSION - DEVELOPMENT BUILDS ALSO DISABLE THIS GUI
 	
 	private static final long serialVersionUUID = 1l;
 	

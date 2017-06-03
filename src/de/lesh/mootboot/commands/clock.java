@@ -35,10 +35,10 @@ public class clock extends ListenerAdapter{
 		eB.setDescription(currentTime());
 		e.getChannel().sendMessage(eB.build()).queue(sentMsg -> {
             		if (msg.getRawContent().contains("temp")){
-				sentMsg.delete().queueAfter(5, SECONDS);
-				msg.delete().queue();
-			}
-        	});
+            			sentMsg.delete().queueAfter(5, SECONDS);
+            			msg.delete().queue();
+            		}
+        });
 	}
 	
 }

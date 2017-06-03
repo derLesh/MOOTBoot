@@ -18,7 +18,7 @@ public class Main {
 	
 	public static JDA jda;
 	public static JDABuilder jdaB = new JDABuilder(AccountType.BOT);
-	public static MainFrame frame;
+	//public static MainFrame frame;
 	public static int sentMSG = 0;
 	
 	public static void main(String[] args) throws Exception {
@@ -35,6 +35,7 @@ public class Main {
 		jdaB.addEventListener(new ideenOutput());
 		jdaB.addEventListener(new botHelp());
 		jdaB.addEventListener(new clock());
+		jdaB.addEventListener(new twitch());
 		
 		jda = jdaB.buildBlocking();
 		//frame = new MainFrame(jda);
