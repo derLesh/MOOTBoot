@@ -20,12 +20,15 @@ public class botHelp extends ListenerAdapter{
 		EmbedBuilder eB = new EmbedBuilder();
 		
 		eB.setAuthor("Help Menu for " + lib.bot_name, null, lib.bot_image);
-		eB.addField("*Bot Info*", "-info > Gives infos about the bot", true);
-		eB.addField("*User info*", "-user <String> > Gives infos about the user", true);
-		eB.addField("*Change Game*", "-game <String> > Change the 'Playing' status", true);
+		eB.addField("**Bot Info**", "-info > Gives infos about the bot", true);
+		eB.addField("**User Info**", "-user <@User> > Gives infos about the user", true);
+		eB.addField("**Change Game**", "-game <String> > Change the 'Playing' status", true);
+		eB.addField("**Server Info**", "-server > Gives infos about the server", true);
+		eB.addField("**Ideen**", "-ideen / -ideen add > Shows Ideas list / Add new ideas", true);
+		eB.addField("**Ping**", "-ping > Shows ping from user and bot", true);
+		eB.addField("**Clock**", "-clock > Shows current time", true);
 		eB.setColor(java.awt.Color.YELLOW);
 		
 		e.getChannel().sendMessage(eB.build()).queue();
-	}
-	
+	}	
 }

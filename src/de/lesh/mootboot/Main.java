@@ -2,6 +2,8 @@ package de.lesh.mootboot;
 
 import de.lesh.mootboot.commands.*;
 import de.lesh.mootboot.commands.info.*;
+import de.lesh.mootboot.misc.bot_token;
+import de.lesh.mootboot.misc.ideen;
 import de.lesh.mootboot.user.*;
 import de.lesh.mootboot.gui.*;
 import net.dv8tion.jda.core.AccountType;
@@ -20,7 +22,6 @@ public class Main {
 	public static int sentMSG = 0;
 	
 	public static void main(String[] args) throws Exception {
-		
 		jdaB.setToken(bot_token.BOT_TOKEN).setGame(Game.of("-help")).setAutoReconnect(true);
 		jdaB.addEventListener(new botInfo());
 		jdaB.addEventListener(new userInfo());
@@ -33,11 +34,10 @@ public class Main {
 		jdaB.addEventListener(new botPing());
 		jdaB.addEventListener(new ideenOutput());
 		jdaB.addEventListener(new botHelp());
+		jdaB.addEventListener(new clock());
 		
 		jda = jdaB.buildBlocking();
-		
 		frame = new MainFrame(jda);
-		
 	}
 	public static JDA getSetup(){
 		return jda;
