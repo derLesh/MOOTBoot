@@ -19,21 +19,15 @@ public class changeGame extends ListenerAdapter {
 		perm.add(155704314638106624L);
 	}
 	
-	
 	public void onMessageReceived(MessageReceivedEvent e) {
-		
 		Message msg = e.getMessage();
 		
 		if(!msg.getRawContent().startsWith("-game") || e.getAuthor().isBot() || bannedList.black.contains(e.getAuthor().getIdLong()) || !permittedList.perm.contains(e.getAuthor().getIdLong())) {
 			return;
 		}
-		
+
 		String gameName = e.getMessage().getRawContent().split("\\s+",2)[1];
-		
-		// Current Problem => Gives no output
-		
-		// Main.jdaB.setGame(Game.of(gameName));
 		e.getJDA().getPresence().setGame(Game.of(gameName));
-		System.out.println("Succesfull changed the game to: " + gameName);
+		System.out.println("[SUCCESS] >> Change game to: " + gameName + " - Command performed by: " + e.getAuthor().getName());
 	}
 }

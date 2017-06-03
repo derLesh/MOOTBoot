@@ -22,21 +22,16 @@ public class pingPongGame extends ListenerAdapter{
 		if(!msg.getRawContent().startsWith("ping") || bannedList.black.contains(e.getAuthor().getIdLong()) || !e.equals(e.getJDA().getSelfUser())){
 			e.getChannel().sendMessage("F*ck YEAH !!! Bot wins").queue();
 		}
-
 		e.getChannel().sendMessage("Ping").queue();
 		
 		if(!msg.getRawContent().startsWith("ping") || bannedList.black.contains(e.getAuthor().getIdLong()) || !e.equals(e.getJDA().getSelfUser())){
 			e.getChannel().sendMessage("F*ck YEAH !!! Bot wins").queue();
 		}
-		
 		e.getChannel().sendMessage("Pong").queue();
 		
 		if(!msg.getRawContent().startsWith("pong") || bannedList.black.contains(e.getAuthor().getIdLong()) || !e.equals(e.getJDA().getSelfUser())){
 			e.getChannel().sendMessage("F*ck YEAH !!! Bot wins").queue();
 		}
-		
 		e.getChannel().sendMessage(e.getAuthor().getAsMention() + " has won :(").queue();
-		
 	}
-	
 }

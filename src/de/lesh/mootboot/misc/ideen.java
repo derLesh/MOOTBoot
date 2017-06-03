@@ -1,4 +1,4 @@
-package de.lesh.mootboot;
+package de.lesh.mootboot.misc;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +11,6 @@ public class ideen extends ListenerAdapter{
 	public static List<String> ideas = new ArrayList<>(); 
 	
 	public void onReady(ReadyEvent e){
-		ideas.add("+ Adding clock");
-		ideas.add("+ LUL");
+		ideas.add("+ Add logfiles");
 	}
-	
 }
