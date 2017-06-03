@@ -37,7 +37,7 @@ public class Main {
 		jdaB.addEventListener(new clock());
 		
 		jda = jdaB.buildBlocking();
-		frame = new MainFrame(jda);
+		//frame = new MainFrame(jda);
 	}
 	public static JDA getSetup(){
 		return jda;

@@ -2,6 +2,8 @@ package de.lesh.mootboot.gui;
 
 import javax.swing.*;
 
+import de.lesh.mootboot.lib;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -14,15 +16,11 @@ public class MainFrame extends JFrame {
 	
 	public MainFrame (JDA jda) {
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		this.setSize(120,240);
-		this.setTitle("MOOTBoot - (C) Lesh");
+		this.setSize(560,360);
+		this.setTitle("kuhlBot - Made by Lesh - a" + lib.version);
 		JButton b;
-		try {
-			ImageIcon gitHub = new ImageIcon(MainFrame.class.getResource("/de/lesh/mootboot/gui/github.png"),"GitHub");
-			b = new JButton("GitHub",gitHub);
-		} catch(IOException ignored) {
-			b = new JButton("GitHub");
-		}
+		ImageIcon kB = new ImageIcon(MainFrame.class.getResource("/de/lesh/mootboot/gui/kuhlProgramming3mini.png"),"kuhlBot");
+		b = new JButton("Source code",kB);
 		b.addActionListener(e->{
 			try{
 				Runtime.getRuntime().exec("start \"\" \"https://github.com/LeshDev/MOOTBoot/tree/master/src/de/lesh/mootboot\"");
