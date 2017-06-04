@@ -42,7 +42,7 @@ public class twitch extends ListenerAdapter{
 			@Override
 			public void onSuccess(Channel channel) {
 				System.out.println(channel);
-				
+				String chLogo = channel.getLogo();
 			}
 		});
 		
