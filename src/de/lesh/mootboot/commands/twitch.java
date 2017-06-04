@@ -22,7 +22,7 @@ public class twitch extends ListenerAdapter{
 		}
 		
 		String twitcher = e.getMessage().getRawContent().split("\\s+",2)[1];
-		
+		EmbedBuilder eB = new EmbedBuilder();
 		Twitch twitch = new Twitch();
 		twitch.setClientId(ids.TWITCH_TOKEN);
 		twitch.channels().get(twitcher, new ChannelResponseHandler() {
@@ -30,24 +30,28 @@ public class twitch extends ListenerAdapter{
 			@Override
 			public void onFailure(int statusCode, String statusMessage, String errorMessage) {
 				System.out.println("[ERROR] >> " + statusCode + " - MESSAGE: " + statusMessage + " - ERROR " + errorMessage);
+				eB.setAuthor("STREAM INFO", null, null);
+				eB.addField("**ERROR**", statusCode + " - MESSAGE: " + statusMessage + " - ERROR " + errorMessage, true);
+				e.getChannel().sendMessage(eB.build()).queue();
 			}
 			
 			@Override
-			public void onFailure(Throwable e) {
-				System.out.println("[ERROR] >> Es gab einen Fehler " + e);
+			public void onFailure(Throwable ex) {
+				System.out.println("[ERROR] >> Es gab einen Fehler " + ex);
+				eB.setAuthor("STREAM INFO", null, null);
+				eB.addField("**ERROR**", "" + ex, true);
+				e.getChannel().sendMessage(eB.build()).queue();
 			}
 			
 			@Override
 			public void onSuccess(Channel channel) {
 				System.out.println(channel);
-				
-				EmbedBuilder eB = new EmbedBuilder();
-				eB.setAuthor("STREAM INFO", null, channel.getLogo());
+				eB.setAuthor("STREAM INFO", channel.getUrl(), channel.getLogo());
 				eB.addField("**Streamer**", channel.getDisplayName(), true);
 				eB.addField("**Live**", "__***Coming soon***__", true);//TODO
 				eB.addField("**Titel**", "" + channel.getStatus(), true);
 				eB.addField("**Game**", channel.getGame(), true);
-				eB.addField("**Sprache**", channel.getBroadcasterLanguage(), true);
+				eB.addField("**Sprache**", channel.getLanguage(), true);
 				eB.addField("**Follower**", ""+channel.getFollowers(), true);
 				eB.addField("**Views**", ""+channel.getViews(), true);
 				eB.addField("**Partner**", ""+channel.isPartner(), true);
