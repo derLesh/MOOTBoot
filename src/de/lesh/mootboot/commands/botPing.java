@@ -20,9 +20,7 @@ public class botPing extends ListenerAdapter{
 		EmbedBuilder eB = new EmbedBuilder();
 		long start = System.currentTimeMillis();
 		
-		eB.setAuthor(">> Bot Ping", null, lib.bot_image);
-		eB.addField("Ping", "**Bot: **" + e.getJDA().getPing() + "ms\n"
-				+ "**User: **" + (System.currentTimeMillis() - start) + "ms", false);
+		eB.addField("**Ping**", "**Bot: **" + e.getJDA().getPing() + "ms\n" + "**User: **" + (System.currentTimeMillis() - start) + "ms", false);
 		eB.setColor(java.awt.Color.MAGENTA);
 		
 		e.getChannel().sendMessage(eB.build()).queue();

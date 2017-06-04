@@ -19,8 +19,8 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 public class twitch extends ListenerAdapter{
 	
 	public void onMessageReceived(MessageReceivedEvent e){
-		Message msg = e.getMessage();
-		if(!msg.getRawContent().startsWith("-twitch") || bannedList.black.contains(e.getAuthor().getIdLong()) || e.getAuthor().isBot()) {
+		Message msge = e.getMessage();
+		if(!msge.getRawContent().startsWith("-twitch") || bannedList.black.contains(e.getAuthor().getIdLong()) || e.getAuthor().isBot()) {
 			return;
 		}
 		
@@ -76,22 +76,5 @@ public class twitch extends ListenerAdapter{
 				e.getChannel().sendMessage(eB.build()).queue();
 			}
 		});
-		/*
-		EmbedBuilder eB = new EmbedBuilder();
-		eB.setAuthor("STREAM INFO", null, chLogo);
-		eB.addField("**Streamer**", twitcher, true);
-		eB.addField("**Live**", "" + chStatus, true);
-		eB.addField("**Titel**", "", true);
-		eB.addField("**Game**", "", true);
-		eB.addField("**Sprache**", "", true);
-		eB.addField("**Follower**", "", true);
-		eB.addField("**Views**", "", true);
-		eB.addField("**Partner**", "", true);
-		eB.setThumbnail(chLogo);
-		
-		e.getChannel().sendMessage(eB.build()).queue();
-		
-		
-		System.out.println("Derzeitiger Title: ");*/
 	}
 }
