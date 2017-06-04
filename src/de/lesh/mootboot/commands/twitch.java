@@ -22,30 +22,39 @@ public class twitch extends ListenerAdapter{
 		String twitcher = e.getMessage().getRawContent().split("\\s+",2)[1];
 		
 		Twitch twitch = new Twitch();
-		String chLogo = new Channel().getLogo();
-		String chStatus = new Channel().getStatus();
 		twitch.setClientId(ids.TWITCH_TOKEN);
 		twitch.channels().get(twitcher, new ChannelResponseHandler() {
 			
 			@Override
 			public void onFailure(int statusCode, String statusMessage, String errorMessage) {
-				// TODO Auto-generated method stub
 				System.out.println("[ERROR] >> " + statusCode + " - MESSAGE: " + statusMessage + " - ERROR " + errorMessage);
 			}
 			
 			@Override
 			public void onFailure(Throwable e) {
-				// TODO Auto-generated method stub
-				System.out.println("[ERROR] >> Es gab einen Fehler");
+				System.out.println("[ERROR] >> Es gab einen Fehler " + e);
 			}
 			
 			@Override
 			public void onSuccess(Channel channel) {
 				System.out.println(channel);
-				String chLogo = channel.getLogo();
+				
+				EmbedBuilder eB = new EmbedBuilder();
+				eB.setAuthor("STREAM INFO", null, channel.getLogo());
+				eB.addField("**Streamer**", channel.getDisplayName(), true);
+				eB.addField("**Live**", "__***Coming soon***__", true);//TODO
+				eB.addField("**Titel**", "" + channel.getStatus(), true);
+				eB.addField("**Game**", channel.getGame(), true);
+				eB.addField("**Sprache**", channel.getBroadcasterLanguage(), true);
+				eB.addField("**Follower**", ""+channel.getFollowers(), true);
+				eB.addField("**Views**", ""+channel.getViews(), true);
+				eB.addField("**Partner**", ""+channel.isPartner(), true);
+				eB.setThumbnail(channel.getLogo());
+				
+				e.getChannel().sendMessage(eB.build()).queue();
 			}
 		});
-		
+		/*
 		EmbedBuilder eB = new EmbedBuilder();
 		eB.setAuthor("STREAM INFO", null, chLogo);
 		eB.addField("**Streamer**", twitcher, true);
@@ -61,6 +70,6 @@ public class twitch extends ListenerAdapter{
 		e.getChannel().sendMessage(eB.build()).queue();
 		
 		
-		System.out.println("Derzeitiger Title: ");
+		System.out.println("Derzeitiger Title: ");*/
 	}
 }
