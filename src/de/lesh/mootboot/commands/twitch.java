@@ -26,7 +26,7 @@ public class twitch extends ListenerAdapter{
 		
 		EmbedBuilder eB = new EmbedBuilder();
 		
-		if(parts.length==0) {
+		if(parts.length<2) {
 			eB.setAuthor("STREAM INFO", null, null);
 			eB.addField("**ERROR**", "No channel was mentioned. Use `-twitch <twitch-name>`!", true);
 			e.getChannel().sendMessage(eB.build()).queue();
