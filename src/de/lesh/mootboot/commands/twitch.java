@@ -1,5 +1,7 @@
 package de.lesh.mootboot.commands;
 
+import java.awt.Color;
+
 import com.mb3364.twitch.api.Twitch;
 import com.mb3364.twitch.api.handlers.ChannelResponseHandler;
 import com.mb3364.twitch.api.models.Channel;
@@ -50,7 +52,7 @@ public class twitch extends ListenerAdapter{
 				eB.addField("**Views**", ""+channel.getViews(), true);
 				eB.addField("**Partner**", ""+channel.isPartner(), true);
 				eB.setThumbnail(channel.getLogo());
-				
+				eB.setColor(Color.MAGENTA);
 				e.getChannel().sendMessage(eB.build()).queue();
 			}
 		});
