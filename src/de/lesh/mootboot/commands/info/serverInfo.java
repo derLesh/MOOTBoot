@@ -24,8 +24,7 @@ public class serverInfo extends ListenerAdapter{
 		eB.addField("**Owner**", "" + e.getGuild().getOwner().getAsMention(), true);
 		eB.addField("**Name**", "" + e.getGuild().getName(), true);
 		eB.addField("**Region**", e.getGuild().getRegion().getName(), true);
-		eB.addField("**Online Users**", e.getGuild().getMembers().stream().filter(es->es.getOnlineStatus()!=OnlineStatus.OFFLINE).count()
-			    +"/"+e.getGuild().getMembers().size(), true);
+		eB.addField("**Online Users**", e.getGuild().getMembers().stream().filter(es->es.getOnlineStatus()!=OnlineStatus.OFFLINE).count() + "/" + e.getGuild().getMembers().size(), true);
 		eB.setThumbnail(e.getGuild().getIconUrl());
 		eB.setColor(Color.RED);
 		
