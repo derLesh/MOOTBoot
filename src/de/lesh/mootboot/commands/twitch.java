@@ -21,8 +21,18 @@ public class twitch extends ListenerAdapter{
 			return;
 		}
 		
-		String twitcher = e.getMessage().getRawContent().split("\\s+",2)[1];
+		String[] parts = e.getMessage().getRawContent().split("\\s+",2);
+		
+		
 		EmbedBuilder eB = new EmbedBuilder();
+		
+		if(parts.length==0) {
+			eB.setAuthor("STREAM INFO", null, null);
+			eB.addField("**ERROR**", "No channel was mentioned. Use `-twitch <twitch-name>`!", true);
+			e.getChannel().sendMessage(eB.build()).queue();
+			return;
+		}
+		String twitcher = parts[1];
 		Twitch twitch = new Twitch();
 		twitch.setClientId(ids.TWITCH_TOKEN);
 		twitch.channels().get(twitcher, new ChannelResponseHandler() {
