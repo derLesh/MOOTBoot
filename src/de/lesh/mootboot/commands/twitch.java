@@ -1,6 +1,7 @@
 package de.lesh.mootboot.commands;
 
 import java.awt.Color;
+import java.util.concurrent.TimeUnit;
 
 import com.mb3364.twitch.api.Twitch;
 import com.mb3364.twitch.api.handlers.ChannelResponseHandler;
@@ -29,7 +30,7 @@ public class twitch extends ListenerAdapter{
 		if(parts.length<2) {
 			eB.setAuthor("STREAM INFO", null, null);
 			eB.addField("**ERROR**", "No channel was mentioned. Use `-twitch <twitch-name>`!", true);
-			e.getChannel().sendMessage(eB.build()).queue();
+			e.getChannel().sendMessage(eB.build()).queueAfter(5, TimeUnit.SECONDS);
 			return;
 		}
 		String twitcher = parts[1];
