@@ -1,7 +1,5 @@
 package de.lesh.mootboot.commands;
 
-import java.awt.Color;
-
 import com.mb3364.twitch.api.Twitch;
 import com.mb3364.twitch.api.handlers.ChannelResponseHandler;
 import com.mb3364.twitch.api.models.Channel;
@@ -42,36 +40,19 @@ public class twitch extends ListenerAdapter{
 				System.out.println(channel);
 				
 				EmbedBuilder eB = new EmbedBuilder();
-				eB.setAuthor("STREAM INFO", null, channel.getLogo());
+				eB.setAuthor("STREAM INFO", channel.getUrl(), channel.getLogo());
 				eB.addField("**Streamer**", channel.getDisplayName(), true);
 				eB.addField("**Live**", "__***Coming soon***__", true);//TODO
 				eB.addField("**Titel**", "" + channel.getStatus(), true);
 				eB.addField("**Game**", channel.getGame(), true);
-				eB.addField("**Sprache**", channel.getBroadcasterLanguage(), true);
+				eB.addField("**Sprache**", channel.getLanguage(), true);
 				eB.addField("**Follower**", ""+channel.getFollowers(), true);
 				eB.addField("**Views**", ""+channel.getViews(), true);
 				eB.addField("**Partner**", ""+channel.isPartner(), true);
 				eB.setThumbnail(channel.getLogo());
-				eB.setColor(Color.MAGENTA);
+				
 				e.getChannel().sendMessage(eB.build()).queue();
 			}
 		});
-		/*
-		EmbedBuilder eB = new EmbedBuilder();
-		eB.setAuthor("STREAM INFO", null, chLogo);
-		eB.addField("**Streamer**", twitcher, true);
-		eB.addField("**Live**", "" + chStatus, true);
-		eB.addField("**Titel**", "", true);
-		eB.addField("**Game**", "", true);
-		eB.addField("**Sprache**", "", true);
-		eB.addField("**Follower**", "", true);
-		eB.addField("**Views**", "", true);
-		eB.addField("**Partner**", "", true);
-		eB.setThumbnail(chLogo);
-		
-		e.getChannel().sendMessage(eB.build()).queue();
-		
-		
-		System.out.println("Derzeitiger Title: ");*/
 	}
 }
