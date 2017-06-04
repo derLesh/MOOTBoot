@@ -4,9 +4,12 @@ import de.lesh.mootboot.lib;
 import de.lesh.mootboot.user.bannedList;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.Region;
+import net.dv8tion.jda.core.OnlineStatus;
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
+
+import java.awt.Color;
 
 public class serverInfo extends ListenerAdapter{
 	
@@ -22,8 +25,11 @@ public class serverInfo extends ListenerAdapter{
 		eB.addField("**Owner**", "" + e.getGuild().getOwner().getEffectiveName(), true);
 		eB.addField("**Name**", "" + e.getGuild().getName(), true);
 		eB.addField("**Region**", e.getGuild().getRegion().getName(), true);
+		eB.addField("**Owner**", e.getGuild().getOwner().getAsMention(), true);
+		eB.addField("**Users**", e.getGuild().getNenbers().stream().filter(e->e.getOnlineStatus()!=OnlineStatus.OFFLINE).count()
+			    +"/"+e.getGuild().getMembers().size(), true);
 		eB.setThumbnail(e.getGuild().getIconUrl());
-		eB.setColor(java.awt.Color.RED);
+		eB.setColor(Color.RED);
 		
 		e.getChannel().sendMessage(eB.build()).queue();
 	}
