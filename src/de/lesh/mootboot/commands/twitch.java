@@ -42,12 +42,12 @@ public class twitch extends ListenerAdapter{
 				System.out.println(channel);
 				
 				EmbedBuilder eB = new EmbedBuilder();
-				eB.setAuthor("STREAM INFO", null, channel.getLogo());
+				eB.setAuthor("STREAM INFO", channel.getUrl(), channel.getLogo());
 				eB.addField("**Streamer**", channel.getDisplayName(), true);
 				eB.addField("**Live**", "__***Coming soon***__", true);//TODO
 				eB.addField("**Titel**", "" + channel.getStatus(), true);
 				eB.addField("**Game**", channel.getGame(), true);
-				eB.addField("**Sprache**", channel.getBroadcasterLanguage(), true);
+				eB.addField("**Sprache**", channel.getLanguage(), true);
 				eB.addField("**Follower**", ""+channel.getFollowers(), true);
 				eB.addField("**Views**", ""+channel.getViews(), true);
 				eB.addField("**Partner**", ""+channel.isPartner(), true);
