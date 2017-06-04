@@ -3,7 +3,6 @@ package de.lesh.mootboot.commands.info;
 import de.lesh.mootboot.lib;
 import de.lesh.mootboot.user.bannedList;
 import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.Region;
 import net.dv8tion.jda.core.OnlineStatus;
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
@@ -22,11 +21,10 @@ public class serverInfo extends ListenerAdapter{
 		}
 		
 		eB.setAuthor("Server Infos", null, lib.bot_image);
-		eB.addField("**Owner**", "" + e.getGuild().getOwner().getEffectiveName(), true);
+		eB.addField("**Owner**", "" + e.getGuild().getOwner().getAsMention(), true);
 		eB.addField("**Name**", "" + e.getGuild().getName(), true);
 		eB.addField("**Region**", e.getGuild().getRegion().getName(), true);
-		eB.addField("**Owner**", e.getGuild().getOwner().getAsMention(), true);
-		eB.addField("**Users**", e.getGuild().getNenbers().stream().filter(e->e.getOnlineStatus()!=OnlineStatus.OFFLINE).count()
+		eB.addField("**Online Users**", e.getGuild().getMembers().stream().filter(es->es.getOnlineStatus()!=OnlineStatus.OFFLINE).count()
 			    +"/"+e.getGuild().getMembers().size(), true);
 		eB.setThumbnail(e.getGuild().getIconUrl());
 		eB.setColor(Color.RED);
