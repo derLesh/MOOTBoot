@@ -30,7 +30,8 @@ public class twitch extends ListenerAdapter{
 		if(parts.length<2) {
 			eB.setAuthor("STREAM INFO", null, null);
 			eB.addField("**ERROR**", "No channel was mentioned. Use `-twitch <twitch-name>`!", true);
-			e.getChannel().sendMessage(eB.build()).queueAfter(5, TimeUnit.SECONDS);
+			eB.setColor(Color.RED);
+			e.getChannel().sendMessage(eB.build()).queue();
 			return;
 		}
 		String twitcher = parts[1];
@@ -43,6 +44,7 @@ public class twitch extends ListenerAdapter{
 				System.out.println("[ERROR] >> " + statusCode + " - MESSAGE: " + statusMessage + " - ERROR " + errorMessage);
 				eB.setAuthor("STREAM INFO", null, null);
 				eB.addField("**ERROR**", statusCode + " - MESSAGE: " + statusMessage + " - ERROR " + errorMessage, true);
+				eB.setColor(Color.RED);
 				e.getChannel().sendMessage(eB.build()).queue();
 			}
 			
@@ -51,6 +53,7 @@ public class twitch extends ListenerAdapter{
 				System.out.println("[ERROR] >> Es gab einen Fehler " + ex);
 				eB.setAuthor("STREAM INFO", null, null);
 				eB.addField("**ERROR**", "" + ex, true);
+				eB.setColor(Color.RED);
 				e.getChannel().sendMessage(eB.build()).queue();
 			}
 			
