@@ -14,6 +14,8 @@ import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
+
 public class twitch extends ListenerAdapter{
 	
 	public void onMessageReceived(MessageReceivedEvent e){
@@ -31,7 +33,7 @@ public class twitch extends ListenerAdapter{
 			eB.setAuthor("STREAM INFO", null, null);
 			eB.addField("**ERROR**", "No channel was mentioned. Use `-twitch <twitch-name>`!", true);
 			eB.setColor(Color.RED);
-			e.getChannel().sendMessage(eB.build()).queue();
+			e.getChannel().sendMessage(eB.build()).queue(msg->msg.delete().queueAfter(5,SECONDS));
 			return;
 		}
 		String twitcher = parts[1];
@@ -45,7 +47,7 @@ public class twitch extends ListenerAdapter{
 				eB.setAuthor("STREAM INFO", null, null);
 				eB.addField("**ERROR**", statusCode + " - MESSAGE: " + statusMessage + " - ERROR " + errorMessage, true);
 				eB.setColor(Color.RED);
-				e.getChannel().sendMessage(eB.build()).queue();
+				e.getChannel().sendMessage(eB.build()).queue(msg->msg.delete().queueAfter(5,SECONDS));
 			}
 			
 			@Override
@@ -54,7 +56,7 @@ public class twitch extends ListenerAdapter{
 				eB.setAuthor("STREAM INFO", null, null);
 				eB.addField("**ERROR**", "" + ex, true);
 				eB.setColor(Color.RED);
-				e.getChannel().sendMessage(eB.build()).queue();
+				e.getChannel().sendMessage(eB.build()).queue(msg->msg.delete().queueAfter(5,SECONDS));
 			}
 			
 			@Override
