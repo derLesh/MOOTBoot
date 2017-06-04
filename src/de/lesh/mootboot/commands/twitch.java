@@ -4,6 +4,7 @@ import com.mb3364.twitch.api.Twitch;
 import com.mb3364.twitch.api.handlers.ChannelResponseHandler;
 import com.mb3364.twitch.api.models.Channel;
 
+import de.lesh.mootboot.misc.ids;
 import de.lesh.mootboot.user.bannedList;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.Message;
@@ -23,7 +24,7 @@ public class twitch extends ListenerAdapter{
 		Twitch twitch = new Twitch();
 		String chLogo = new Channel().getLogo();
 		String chStatus = new Channel().getStatus();
-		twitch.setClientId("0ohicnitan471182v4axwmwdu8cisx");
+		twitch.setClientId(ids.TWITCH_TOKEN);
 		twitch.channels().get(twitcher, new ChannelResponseHandler() {
 			
 			@Override
