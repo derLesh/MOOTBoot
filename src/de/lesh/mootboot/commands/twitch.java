@@ -64,7 +64,7 @@ public class twitch extends ListenerAdapter{
 				System.out.println(channel);
 				eB.setAuthor("STREAM INFO", channel.getUrl(), channel.getLogo());
 				eB.addField("**Streamer**", channel.getDisplayName(), true);
-				eB.addField("**Live**", "__***Coming soon***__", true);//TODO
+				eB.addField("**Live**", "__**KOMMT NOCH**__", true);//TODO
 				eB.addField("**Titel**", "" + channel.getStatus(), true);
 				eB.addField("**Game**", channel.getGame(), true);
 				eB.addField("**Sprache**", channel.getLanguage(), true);
@@ -72,7 +72,7 @@ public class twitch extends ListenerAdapter{
 				eB.addField("**Views**", ""+channel.getViews(), true);
 				eB.addField("**Partner**", ""+channel.isPartner(), true);
 				eB.setThumbnail(channel.getLogo());
-				eB.setColor(Color.MAGENTA);
+				eB.setColor(Color.getHSBColor(261.21f, 60.37f, 64.31f));
 				e.getChannel().sendMessage(eB.build()).queue();
 			}
 		});

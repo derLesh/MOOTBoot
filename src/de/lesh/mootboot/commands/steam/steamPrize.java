@@ -16,22 +16,14 @@ public class steamPrize extends ListenerAdapter{
 
 	public void onMessageReceived(MessageReceivedEvent e){
 		Message msg = e.getMessage();
-		SteamWebApiClient client = new SteamWebApiClient.SteamWebApiClientBuilder(ids.STEAM_KEY).build();
-		GetNewsForAppRequest request = SteamWebApiRequestFactory.createGetNewsForAppRequest(70);
-		GetNewsForApp getNewsForApp = null;
-		try {
-			getNewsForApp = client.<GetNewsForApp> processRequest(request);
-		} catch (SteamApiException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-
 		if(!msg.getRawContent().startsWith("-prize") || bannedList.black.contains(e.getAuthor().getIdLong()) || e.getAuthor().isBot()) {
 			return;
 		}
 		
-		System.out.println(getNewsForApp);
+		SteamWebApiClient client = new SteamWebApiClient.SteamWebApiClientBuilder(ids.STEAM_KEY).build();
+		GetNewsForAppRequest request = SteamWebApiRequestFactory.createGetNewsForAppRequest(70);
+		//GetNewsForApp getNewsForApp = client.<GetNewsForApp> processRequest(request);
 		
-		
+		//System.out.println(getNewsForApp);
 	}	
 }
