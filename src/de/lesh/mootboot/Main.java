@@ -5,7 +5,6 @@ import de.lesh.mootboot.commands.info.*;
 import de.lesh.mootboot.misc.ids;
 import de.lesh.mootboot.misc.ideen;
 import de.lesh.mootboot.user.*;
-import de.lesh.mootboot.gui.*;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
@@ -22,6 +21,9 @@ public class Main {
 	public static int sentMSG = 0;
 	
 	public static void main(String[] args) throws Exception {
+		System.out.println("[BOOT] >> Launching MOOTBoot");
+		System.out.println("[BOOT] >> Version: " + lib.version);
+		
 		jdaB.setToken(ids.BOT_TOKEN).setGame(Game.of("-help")).setAutoReconnect(true);
 		jdaB.addEventListener(new botInfo());
 		jdaB.addEventListener(new userInfo());
@@ -37,8 +39,12 @@ public class Main {
 		jdaB.addEventListener(new clock());
 		jdaB.addEventListener(new twitch());
 		
+		System.out.println("[SUCCESSFUL] >> Added all EventListeners");
+		
 		jda = jdaB.buildBlocking();
 		//frame = new MainFrame(jda);
+		System.out.println("[SUCCESSFUL] >> Activating MOOTBoot");
+		
 	}
 	public static JDA getSetup(){
 		return jda;

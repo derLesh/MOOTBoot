@@ -25,7 +25,6 @@ public class changeGame extends ListenerAdapter {
 		if(!msg.getRawContent().startsWith("-game") || e.getAuthor().isBot() || bannedList.black.contains(e.getAuthor().getIdLong()) || !permittedList.perm.contains(e.getAuthor().getIdLong())) {
 			return;
 		}
-
 		String gameName = e.getMessage().getRawContent().split("\\s+",2)[1];
 		e.getJDA().getPresence().setGame(Game.of(gameName));
 		System.out.println("[SUCCESS] >> Change game to: " + gameName + " - Command performed by: " + e.getAuthor().getName());

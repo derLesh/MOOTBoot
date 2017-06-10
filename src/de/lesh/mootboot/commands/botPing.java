@@ -1,6 +1,5 @@
 package de.lesh.mootboot.commands;
 
-import de.lesh.mootboot.lib;
 import de.lesh.mootboot.user.bannedList;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.JDA;
