@@ -38,6 +38,7 @@ public class Main {
 		jdaB.addEventListener(new botHelp());
 		jdaB.addEventListener(new clock());
 		jdaB.addEventListener(new twitch());
+		jdaB.addEventListener(new LoveTest());
 		
 		System.out.println("[SUCCESSFUL] >> Added all EventListeners");
 		
