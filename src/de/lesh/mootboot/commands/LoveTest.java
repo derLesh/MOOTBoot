@@ -24,18 +24,20 @@ public class LoveTest extends ListenerAdapter{
 		int prozent = rdm.nextInt(101);
 		
 		if(words.length == 2){
-			eB.setAuthor("Dein Liebestest", null, u.getEffectiveAvatarUrl());
-			eB.addField("User: " + Arrays.toString(words), prozent + "%", true);
+			eB.setAuthor("Dein Liebestest mit ...", null, u.getEffectiveAvatarUrl());
+			eB.addField("User: " + Arrays.toString(words).replaceAll(", "," ").replace("[","").replace("]",""), prozent + "%", true);
+			eB.setColor(Color.PINK);
 			e.getChannel().sendMessage(eB.build()).queue();
 		} else if(words.length == 3){
-			eB.setAuthor("Der Liebestest", null, u.getEffectiveAvatarUrl());
-			eB.addField(Arrays.toString(words), prozent + "%", true);
+			eB.setAuthor("Der Liebestest zwischen ...", null, u.getEffectiveAvatarUrl());
+			eB.addField(Arrays.toString(words).replaceAll(", "," ").replace("[","").replace("]",""), prozent + "%", true);
+			eB.setColor(Color.PINK);
 			e.getChannel().sendMessage(eB.build()).queue();
 		} else{
 			eB.setAuthor("ERROR >> Missing arguments", null, null);
 			eB.addField("Es fehlen Argumente für -love", "" , false);
 			eB.setColor(Color.RED);
 			e.getChannel().sendMessage(eB.build()).queue();
-		}
+		} System.out.println("[SUCCESSFUL] >> Used command: -love - Command performed by " + u + " - Folgende Inputs wurde getrackt: " + Arrays.toString(words).replaceAll(", "," ").replace("[","").replace("]",""));
 	}
 }

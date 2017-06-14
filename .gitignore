@@ -5,6 +5,7 @@ bannedList.java
 .classpath
 .project
 ids.java
+stats.json
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/

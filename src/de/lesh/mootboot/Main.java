@@ -2,6 +2,7 @@ package de.lesh.mootboot;
 
 import de.lesh.mootboot.commands.*;
 import de.lesh.mootboot.commands.info.*;
+import de.lesh.mootboot.commands.stats.*;
 import de.lesh.mootboot.misc.ids;
 import de.lesh.mootboot.misc.ideen;
 import de.lesh.mootboot.user.*;
@@ -39,6 +40,7 @@ public class Main {
 		jdaB.addEventListener(new clock());
 		jdaB.addEventListener(new twitch());
 		jdaB.addEventListener(new LoveTest());
+		jdaB.addEventListener(new Stats());
 		
 		System.out.println("[SUCCESSFUL] >> Added all EventListeners");
 		
