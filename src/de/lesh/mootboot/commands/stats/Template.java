@@ -4,6 +4,6 @@ public class Template {
 
 		public String name;
 		public int id;
-		public String msg;
+		public int msg;
 		public int lvl;
 }
