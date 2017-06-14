@@ -37,7 +37,7 @@ public class Stats extends ListenerAdapter{
 		
 		//if()
 		uInfo.name = u.getName();
-		uInfo.id = idGen;
+		uInfo.id = u.getId();
 		uInfo.lvl = 0;
 		
 		try (Writer writer = new FileWriter(path)){
