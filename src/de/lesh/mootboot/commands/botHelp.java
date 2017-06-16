@@ -27,6 +27,9 @@ public class botHelp extends ListenerAdapter{
 		eB.addField("**Ideen**", "-ideen / -ideen add > Shows Ideas list / Add new ideas", true);
 		eB.addField("**Ping**", "-ping > Shows ping from user and bot", true);
 		eB.addField("**Clock**", "-clock > Shows current time", true);
+		eB.addField("**Twitch**", "-twitch <String> > Gives infos about a streamer", true);
+		eB.addField("**LoveTest**", "-love <String (String)> - Shos the love between you and something else", true);
+		eB.addField("**Stats**", "-stats > Gives stats about you", true);
 		eB.setColor(java.awt.Color.YELLOW);
 		
 		e.getChannel().sendMessage(eB.build()).queue();

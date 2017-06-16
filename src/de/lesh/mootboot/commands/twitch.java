@@ -1,7 +1,8 @@
 package de.lesh.mootboot.commands;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
+
 import java.awt.Color;
-import java.util.concurrent.TimeUnit;
 
 import com.mb3364.twitch.api.Twitch;
 import com.mb3364.twitch.api.handlers.ChannelResponseHandler;
@@ -13,8 +14,6 @@ import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
-
-import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class twitch extends ListenerAdapter{
 	

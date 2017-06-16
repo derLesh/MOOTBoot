@@ -3,10 +3,10 @@ package de.lesh.mootboot.commands.stats;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
-import java.util.Random;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
 import de.lesh.mootboot.user.bannedList;
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.entities.User;
@@ -25,8 +25,8 @@ public class Stats extends ListenerAdapter{
 		Template uInfo = new Template();
 		Message msg = e.getMessage();
 		User u = e.getAuthor();
-		Random rdm = new Random();
-		int idGen = rdm.nextInt(999999);
+//		Random rdm = new Random();
+		//int idGen = rdm.nextInt(999999);
 		
 		
 		if(!msg.getRawContent().startsWith("-stats") || bannedList.black.contains(e.getAuthor().getIdLong()) || e.getAuthor().isBot()) {

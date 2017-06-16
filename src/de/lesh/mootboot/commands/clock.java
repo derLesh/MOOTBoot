@@ -10,8 +10,6 @@ import java.time.format.DateTimeFormatter;
 
 import de.lesh.mootboot.lib;
 import de.lesh.mootboot.user.bannedList;
-import de.lesh.mootboot.user.permittedList;
-
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class clock extends ListenerAdapter{
@@ -26,7 +24,7 @@ public class clock extends ListenerAdapter{
 	
 	public void onMessageReceived(MessageReceivedEvent e){
 		Message msg = e.getMessage();
-		if(!msg.getRawContent().toLowerCase().startsWith("-clock") || bannedList.black.contains(e.getAuthor().getIdLong()) || e.getAuthor().isBot() || !permittedList.perm.contains(e.getAuthor().getIdLong())){
+		if(!msg.getRawContent().toLowerCase().startsWith("-clock") || bannedList.black.contains(e.getAuthor().getIdLong()) || e.getAuthor().isBot()){
 			return;
 		}
 		EmbedBuilder eB = new EmbedBuilder();
@@ -40,5 +38,4 @@ public class clock extends ListenerAdapter{
             		}
         });
 	}
-	
 }
