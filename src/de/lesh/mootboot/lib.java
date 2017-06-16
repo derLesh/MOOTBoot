@@ -6,7 +6,7 @@ import java.util.Random;
 public class lib {
 
 	public static final String bot_name = "kuhlBot";
-	public static final String version = "0.0.6";
+	public static final String version = "0.1.3";
 	
 	public static final String bot_image = "https://github.com/LeshDev/MOOTBoot/blob/master/src/de/lesh/mootboot/gui/kuhlProgramming3.png";
 	

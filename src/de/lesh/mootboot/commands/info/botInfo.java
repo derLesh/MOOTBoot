@@ -9,6 +9,8 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 public class botInfo extends ListenerAdapter {
 
+	String OS = "os.name";
+	
 	public void onMessageReceived(MessageReceivedEvent e) {
 		Message msg = e.getMessage();
 		EmbedBuilder eB = new EmbedBuilder();
@@ -23,6 +25,8 @@ public class botInfo extends ListenerAdapter {
 		eB.addField("GitHub", "[MOOTBooT](https://github.com/LeshDev/MOOTBoot/tree/master/src/de/lesh/mootboot)", true);
 		eB.addField("Safe since", "28.05.2017 - 21:51", true);
 		eB.addField("Version", lib.version, true);
+		eB.addField("**Current OS**", System.getProperty(OS), true);
+		eB.addField("**Placeholder**", "", true);
 		eB.setThumbnail(lib.bot_image);
 		eB.setColor(java.awt.Color.GREEN);		
 		e.getChannel().sendMessage(eB.build()).queue();
