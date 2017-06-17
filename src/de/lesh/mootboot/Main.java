@@ -41,6 +41,7 @@ public class Main {
 		jdaB.addEventListener(new twitch());
 		jdaB.addEventListener(new LoveTest());
 		jdaB.addEventListener(new Stats());
+		jdaB.addEventListener(new RuRoulette());
 		
 		System.out.println("[SUCCESSFUL] >> Added all EventListeners");
 		
