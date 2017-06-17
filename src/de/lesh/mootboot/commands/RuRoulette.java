@@ -1,5 +1,6 @@
 package de.lesh.mootboot.commands;
 
+import java.awt.Color;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -38,22 +39,24 @@ public class RuRoulette extends ListenerAdapter{
 			int hitting = hit.nextInt(2);
 			if(bullets != 0 && hitting == 1){
 				status = "Deine Seele verschwindet";
-				System.out.println("Du bist gestorben");
+				System.out.println("[DEBUG] >> Du bist gestorben");
+				eB.setColor(Color.RED);
 				break;
 			}else{
 				status = "Dein Leben verläuft normal";
+				eB.setColor(Color.GREEN);
 			}
 			gedrehteRunden++;
-			System.out.println("Es wird ein weiteres Mal gedreht");
+			System.out.println("[DEBUG] >> Es wird ein weiteres Mal gedreht");
 		}
 		
 		eB.setAuthor(">> Revolver Game", null, null);
-		eB.addField("Name", user.getName(), true);
+		eB.addField("Name", user.getAsMention(), true);
 		eB.addField("Vorhandene Kugeln", "" + saveBullets, true);
 		eB.addField("Gesamte Drehungen", "" + Integer.parseInt(split), false);
 		eB.addField("Drehungen", "" + gedrehteRunden, true);
 		eB.addField("Status", status, true);
 		e.getChannel().sendMessage(eB.build()).queue();
-		System.out.println("Kugeln: " + bullets);
+		System.out.println("[Debug] >> Kugeln: " + bullets);
 	}
 }

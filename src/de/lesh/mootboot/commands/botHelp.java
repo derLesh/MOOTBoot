@@ -9,6 +9,8 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 public class botHelp extends ListenerAdapter{
 
+	String OS = "os.name";
+	
 	public void onMessageReceived(MessageReceivedEvent e){
 		
 		Message msg = e.getMessage();
@@ -30,6 +32,8 @@ public class botHelp extends ListenerAdapter{
 		eB.addField("**Twitch**", "-twitch <String> > Gives infos about a streamer", true);
 		eB.addField("**LoveTest**", "-love <String (String)> - Shos the love between you and something else", true);
 		eB.addField("**Stats**", "-stats > Gives stats about you", true);
+		eB.addField("**Revolver**", "-revolver <int> > Play a game. A Mother FUCKING Russia game", true);
+		eB.setFooter("MOOTBot - Made by @Lesh - Running on: " + System.getProperty(OS), lib.bot_image);
 		eB.setColor(java.awt.Color.YELLOW);
 		
 		e.getChannel().sendMessage(eB.build()).queue();
