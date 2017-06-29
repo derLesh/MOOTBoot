@@ -1,6 +1,7 @@
 *.class
 bot_token.java
 bannedList.java
+bin/
 
 .classpath
 .project
