@@ -1,5 +1,5 @@
 # MOOTBoot
-Discord Bot for Moots - Made in Java
+Discord Bot for random usefull things - Made in Java by a beginner
 ## Funktionalität
 ### Commands
 - `-user [@mention array]`
